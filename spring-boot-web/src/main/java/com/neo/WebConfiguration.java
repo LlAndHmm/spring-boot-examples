@@ -24,7 +24,7 @@ public class WebConfiguration {
     
     @Bean
     public FilterRegistrationBean testFilterRegistration() {
-
+        System.out.println("FilterRegistrationBean created");
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new MyFilter());
         registration.addUrlPatterns("/*");
@@ -38,7 +38,8 @@ public class WebConfiguration {
 		@Override
 		public void destroy() {
 			// TODO Auto-generated method stub
-		}
+            System.out.println("destroy MyFilter");
+        }
 
 		@Override
 		public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain filterChain)
@@ -52,7 +53,8 @@ public class WebConfiguration {
 		@Override
 		public void init(FilterConfig arg0) throws ServletException {
 			// TODO Auto-generated method stub
-		}
+            System.out.println("init MyFilter");
+        }
     }
 }
 
